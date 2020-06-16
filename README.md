@@ -35,15 +35,15 @@ Imagine a list of songs in your phone. As the song on the top moves up past the 
 
 The example project contains some data for dogs and cats by breed. The data lists values from 0 to 5 on the animal's friendliness, intelligence, playfulness, etc. 
 
-All of this data is in `cat-anddog-breeds.json`. The data here is in a giant object, `breed.js` takes the data and organizes it into arrays. You can import the following arrays from `breed.js`:
+All of this data is in `cat-and-dog-breeds.json`. The data here is in a giant object, `breed.js` takes the data and organizes it into arrays. You can import the following arrays from `breed.js`:
 
-- petTypes - Lists the types 
+- petTypes - Lists the types
 - cats - Lists all of the cats each an object with features
-- dogs - lists all of the dogs each and object with features 
+- dogs - lists all of the dogs each and object with features
 
-Note! Not all cats or dogs have the same feature properties. Many are shared but all properties do not exist on all animals. 
+Note! Not all cats or dogs have the same feature properties. Many are shared but all properties do not exist on all animals.
 
-## Challenges 
+## Challenges
 
 The goal of these challenges is to use FlatList to display cat and dog breed information in a scrolling list. 
 
