@@ -2,6 +2,25 @@
 
 This is a short tutorial on using the FlatList. 
 
+## Getting Started 
+
+Initialize a new React Native Project with expo. 
+
+`expo init by-breed`
+
+Choose Blank project.
+
+Then run the project to test it. 
+
+`cd by-breed`
+
+`yarn start`
+
+Copy the files into the folder: 
+
+- `breeds.js`
+- `cat-and-dog-breeds.json`
+
 ## Overview 
 
 Mobile screens are small and have limited space. The default mode to view content it scrolling lists. 
