@@ -80,6 +80,10 @@ You'll need a `TextInput` component. You should use the controlled component pat
 
 Use the `KeyboardAvoidingView` to prevent the search field from being covered by the keyboard. 
 
+Use filter with the search term on the array of animal breeds. Then use the filtered array as the source array passed to flat list. 
+
 ### Challenge 7 
 
 Add a button that switches between the cat and the dog list. 
+
+Use the Button or other component to set a value on a state variable. You can use this variable to choose which list to display. 
