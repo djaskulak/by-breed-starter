@@ -1,24 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList, SafeAreaView, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
-
 import Item from './Item'
-
 import { cats } from './breeds'
 
 export default function App() {
+  const [search, setSearch] = useState('')
+
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar style="auto" />
       <View style={styles.listContainer}>
         <FlatList 
-          data={cats}
+          data={cats.filter(item => item.breed.includes(search))}
           renderItem={({ item, index }) => {
             return <Item index={index} data={item}/>
           }}
           keyExtractor={item => item.breed}
         />
-        <StatusBar style="auto" />
       </View>
+      <TextInput 
+        style={styles.search}
+        placeholder="Search"
+        onChangeText={setSearch}
+        value={search}
+      />
     </SafeAreaView>
   );
 }
@@ -32,5 +38,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  }, 
+  search: {
+    fontSize: 24,
+    padding: 10
   }
 });
