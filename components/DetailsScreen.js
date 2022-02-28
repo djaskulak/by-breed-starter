@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Button, View, Text, StyleSheet } from 'react-native';
+import FeatureView from './FeatureView';
 
 export default function DetailsScreen({ route, navigation }) {
   /* 2. Get the param */
@@ -10,7 +11,7 @@ export default function DetailsScreen({ route, navigation }) {
     <View style={styles.details}>
       <Text style={styles.detailsText}>{item.breed}</Text>
 
-      {keys.map(key => <Text>{key} : {item[key]}</Text>)}
+      {keys.map(key => <FeatureView name={key} value={item[key]}/>)}
 
       <Button
         title="Go to Home"
@@ -24,7 +25,8 @@ const styles = StyleSheet.create({
   details: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    padding: 10
   },
   detailsText: {
     fontSize: 30
