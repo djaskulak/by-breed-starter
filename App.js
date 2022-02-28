@@ -1,60 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList, SafeAreaView, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
-import Item from './Item'
-import { cats } from './breeds'
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import HomeScreen from './components/HomeScreen';
+
+//manages which screen is currently viewed
+const Stack = createStackNavigator();
 
 export default function App() {
-  const [search, setSearch] = useState('')
-
   return (
-    <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.kav}
+    <NavigationContainer>
+      <Stack.Navigator 
+        initialRouteName="Home"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
       >
-        <StatusBar style="auto" />
-        <View>
-          <TextInput 
-            style={styles.search}
-            placeholder="Search"
-            onChangeText={setSearch}
-            value={search}
-          />
-        </View>
-        <View style={styles.listContainer}>
-          <FlatList 
-            data={cats.filter(item => item.breed.includes(search))}
-            renderItem={({ item, index }) => {
-              return <Item index={index} data={item}/>
-            }}
-            keyExtractor={item => item.breed}
-          />
-        </View>
-      </KeyboardAvoidingView>
-    </SafeAreaView>
+        <Stack.Screen 
+          name="Home" 
+          component={HomeScreen} 
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  listContainer: {
-    width: '100%'
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }, 
-  search: {
-    fontSize: 24,
-    padding: 10,
-    borderWidth: 1
-  },
-  kav: {
-    flex: 1,
-    justifyContent: 'center',
-    width: '100%',
-    marginBottom: 30
-  }
-});

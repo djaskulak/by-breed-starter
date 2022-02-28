@@ -1,6 +1,6 @@
 
    
-import * as data from './cat-and-dog-breeds.json'
+import * as data from '../cat-and-dog-breeds.json'
 
 const petTypes = []
 for (let key in data) {
