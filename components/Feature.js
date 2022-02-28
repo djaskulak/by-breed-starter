@@ -2,11 +2,15 @@ import React from 'react'
 import { View, Text, StyleSheet} from 'react-native'
 
 export default function Feature({ name, value}) {
+  let stars = ''
+  for (let i=0; i<value; i+=1) {
+    stars += '★'
+  }
 
   return(
     <View style={styles.container}>
       <Text style={styles.name}>{name}</Text>
-      <Text style={styles.value}>{value}</Text>
+      <Text style={styles.value}>{stars}</Text>
     </View>
   )
 }
