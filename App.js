@@ -1,6 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView, FlatList, SafeAreaView } from 'react-native';
-import Item from './components/Item'
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, FlatList, SafeAreaView, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
+
+import Item from './Item'
+
 import { cats } from './breeds'
 
 export default function App() {
@@ -10,7 +13,7 @@ export default function App() {
         <FlatList 
           data={cats}
           renderItem={({ item, index }) => {
-            return <Item index={index} dats={item}/>
+            return <Item index={index} data={item}/>
           }}
           keyExtractor={item => item.breed}
         />

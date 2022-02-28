@@ -5,7 +5,7 @@ import Feature from './Feature'
 export default function Item(props) {
   const { data, index } = props
   const { breed } = data
-  const keys = Object.keys(data).filter(key => key != 'breed')
+  const keys = Object.keys(data).filter(key => key !== 'breed')
 
   const average = (keys.reduce((acc, key) => {
     return acc + data[key]
@@ -14,7 +14,6 @@ export default function Item(props) {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{index}: {breed} {average}</Text>
-      {/* {keys.map(key => <Text style={styles.detail}>{key} {data[key]}</Text>)} */}
       {keys.map(key => <Feature name={key} value={data[key]} />)}
     </View>
   )
