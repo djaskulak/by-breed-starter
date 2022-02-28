@@ -1,32 +1,21 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from './components/HomeScreen';
+import CatsScreen from './components/CatsScreen';
+import DogsScreen from './components/DogsScreen';
 
-//manages which screen is currently viewed
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator 
-        initialRouteName="Home"
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: '#f4511e',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-      >
-        <Stack.Screen 
-          name="Home" 
-          component={HomeScreen} 
-        />
-      </Stack.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Cats" component={CatsScreen} />
+        <Tab.Screen name="Dogs" component={DogsScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }

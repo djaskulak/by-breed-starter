@@ -17,6 +17,14 @@ export default function DetailsScreen({ route, navigation }) {
         title="Go to Home"
         onPress={() => navigation.navigate('Home')}
       />
+      <Button
+        title="Go to Cats"
+        onPress={() => navigation.navigate('CatsScreen')}
+      />
+      <Button
+        title="Go to Dogs"
+        onPress={() => navigation.navigate('DogsScreen')}
+      />
     </View>
   );
 }

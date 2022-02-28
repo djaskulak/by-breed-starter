@@ -1,24 +1,20 @@
 import * as React from 'react'
-import { View, Text, FlatList, StyleSheet } from 'react-native'
-
-import { cats } from './breeds'
-import Cell from './Cell'
+import { View, StyleSheet, Button } from 'react-native'
 
 export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <FlatList
-        style={styles.list}
-        data={cats}
-        renderItem={({ item, index }) => {
-          return (
-            <Cell 
-              title={item.breed} 
-              showDetails={() => navigation.navigate('Details', { item })}
-            />
-          )
-        }}
-        keyExtractor={(item) => item.breed}
+      <Button
+        title="Go to Home"
+        onPress={() => navigation.navigate('Home')}
+      />
+      <Button
+        title="Go to Cats"
+        onPress={() => navigation.navigate('CatsScreen')}
+      />
+      <Button
+        title="Go to Dogs"
+        onPress={() => navigation.navigate('DogsScreen')}
       />
     </View>
   )
@@ -31,9 +27,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 10,
     margin: 1
-  },
-  list: {
-    flex: 1,
-    width: '100%'
   }
 });
