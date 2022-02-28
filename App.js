@@ -6,7 +6,7 @@ import { cats } from './breeds'
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <View>
+      <View style={styles.listContainer}>
         <FlatList 
           data={cats}
           renderItem={({ item, index }) => {
@@ -21,15 +21,13 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  listContainer: {
+    width: '100%'
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  heading: {
-    fontSize: 50,
-    color: 'tomato',
-    fontWeight: 'bold'
   }
 });
